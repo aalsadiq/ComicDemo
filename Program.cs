@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var _jwtsettings = builder.Configuration.GetSection("JwtSettings");
+var _jwtsettings = builder.Configuration.GetSection("JwtSetting");
 
 var app = builder.Build();
 

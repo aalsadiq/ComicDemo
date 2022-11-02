@@ -1,6 +1,6 @@
 namespace ComicBookAPI.Models
 {
-    public class JwtSettings
+    public class JwtSetting
     {
         public string securitykey{set; get;}
     }

@@ -11,23 +11,22 @@ namespace ComicBookAPI.Controllers {
     [ApiController]
     public class UserController : ControllerBase {
         private readonly ApiContext _context;
-        private readonly JwtSettings jwtSettings;
+        private readonly JwtSetting jwtSetting;
 
-        public UserController (ApiContext context, IOptions<JwtSettings> options) {
+        public UserController (ApiContext context, IOptions<JwtSetting> options) {
             _context = context;
-            jwtSettings = options.Value;
+            jwtSetting = options.Value;
         }
 
         [HttpPost]
         public async Task<IActionResult> Authenticate (User user) {
-            var userCred =
-                this._context.Users.FirstOrDefault (usr => usr.Username == user.Username && usr.Password == user.Password);
-            if (userCred == null)
+            
+            if(user.Username != "admin" && user.Password != "admin")
                 return Unauthorized ();
             
             // Generating token
             var tokenHandler = new JwtSecurityTokenHandler ();
-            var tokenKey = Encoding.UTF8.GetBytes (this.jwtSettings.securitykey);
+            var tokenKey = Encoding.UTF8.GetBytes (jwtSetting.securitykey);
             var tokenDesc = new SecurityTokenDescriptor {
                 Expires = DateTime.Now.AddSeconds (100),
                 SigningCredentials = new SigningCredentials (new SymmetricSecurityKey (tokenKey), SecurityAlgorithms.Sha256)
