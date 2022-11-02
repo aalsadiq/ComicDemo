@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ahmedalsadiq/Desktop/DotNet/Comic/Comic.csproj": {}
+    "/Users/ahmed/Desktop/C#/Comic/Comic.csproj": {}
   },
   "projects": {
-    "/Users/ahmedalsadiq/Desktop/DotNet/Comic/Comic.csproj": {
+    "/Users/ahmed/Desktop/C#/Comic/Comic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ahmedalsadiq/Desktop/DotNet/Comic/Comic.csproj",
+        "projectUniqueName": "/Users/ahmed/Desktop/C#/Comic/Comic.csproj",
         "projectName": "Comic",
-        "projectPath": "/Users/ahmedalsadiq/Desktop/DotNet/Comic/Comic.csproj",
-        "packagesPath": "/Users/ahmedalsadiq/.nuget/packages/",
-        "outputPath": "/Users/ahmedalsadiq/Desktop/DotNet/Comic/obj/",
+        "projectPath": "/Users/ahmed/Desktop/C#/Comic/Comic.csproj",
+        "packagesPath": "/Users/ahmed/.nuget/packages/",
+        "outputPath": "/Users/ahmed/Desktop/C#/Comic/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "/Users/ahmedalsadiq/.nuget/NuGet/NuGet.Config"
+          "/Users/ahmed/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
