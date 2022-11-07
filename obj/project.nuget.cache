@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/fUYG5/M9Q2KKCfDhdihRur8jvTTlm7BhP6HY9bf+x3HQd/nYCD1268XEWAiZNzLTgM+RWrQ119LmbCTs60snw==",
+  "dgSpecHash": "WFlaT2IONmT7q97USNcEVB8s88mI/9rU6IfiQe3Bc5KqdJ9kSWz1NtxkkFeaVwPRYe9eF8Lh1caIPc8LzrWfYw==",
   "success": true,
   "projectFilePath": "/Users/ahmed/Desktop/C#/Comic/Comic.csproj",
   "expectedPackageFiles": [
+    "/Users/ahmed/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.10/microsoft.aspnetcore.authentication.jwtbearer.6.0.10.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.entityframeworkcore/6.0.10/microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.10/microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
@@ -21,6 +22,8 @@
     "/Users/ahmed/.nuget/packages/microsoft.identitymodel.abstractions/6.25.0/microsoft.identitymodel.abstractions.6.25.0.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.25.0/microsoft.identitymodel.jsonwebtokens.6.25.0.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.identitymodel.logging/6.25.0/microsoft.identitymodel.logging.6.25.0.nupkg.sha512",
+    "/Users/ahmed/.nuget/packages/microsoft.identitymodel.protocols/6.10.0/microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "/Users/ahmed/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.10.0/microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.identitymodel.tokens/6.25.0/microsoft.identitymodel.tokens.6.25.0.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/Users/ahmed/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",

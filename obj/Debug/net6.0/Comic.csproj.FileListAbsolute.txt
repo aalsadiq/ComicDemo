@@ -82,3 +82,6 @@
 /Users/ahmed/Desktop/C#/Comic/obj/Debug/net6.0/Comic.pdb
 /Users/ahmed/Desktop/C#/Comic/obj/Debug/net6.0/Comic.genruntimeconfig.cache
 /Users/ahmed/Desktop/C#/Comic/obj/Debug/net6.0/ref/Comic.dll
+/Users/ahmed/Desktop/C#/Comic/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/ahmed/Desktop/C#/Comic/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/Users/ahmed/Desktop/C#/Comic/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

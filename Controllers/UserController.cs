@@ -1,41 +1,51 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using ComicBookAPI.Data;
 using ComicBookAPI.Models;
+using ComicBookAPI.Repository;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
 
-namespace ComicBookAPI.Controllers {
-    [Route ("api/[controller]/[action]")]
+namespace ComicBookAPI.Controllers
+{
+
+    [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase {
-        private readonly ApiContext _context;
-        private readonly JwtSetting jwtSetting;
 
-        public UserController (ApiContext context, IOptions<JwtSetting> options) {
-            _context = context;
-            jwtSetting = options.Value;
+    public class UsersController : ControllerBase
+    {
+        private readonly IJWTManagerRepository _jWTManager;
+
+        public UsersController(IJWTManagerRepository jWTManager)
+        {
+            this._jWTManager = jWTManager;
         }
 
+        [HttpGet]
+        public List<string> Get()
+        {
+            var users = new List<string>
+                    {
+                        "Satinder Singh",
+                        "Amit Sarna",
+                        "Davin Jon"
+                    };
+
+            return users;
+        }
+
+        [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Authenticate (User user) {
-            
-            if(user.Username != "admin" && user.Password != "admin")
-                return Unauthorized ();
-            
-            // Generating token
-            var tokenHandler = new JwtSecurityTokenHandler ();
-            var tokenKey = Encoding.UTF8.GetBytes (jwtSetting.securitykey);
-            var tokenDesc = new SecurityTokenDescriptor {
-                Expires = DateTime.Now.AddSeconds (100),
-                SigningCredentials = new SigningCredentials (new SymmetricSecurityKey (tokenKey), SecurityAlgorithms.Sha256)
-            };
-            string finalToken = tokenHandler.WriteToken (tokenHandler.CreateToken (tokenDesc));
+        [Route("authenticate")]
+        public IActionResult Authenticate(User usersdata)
+        {
+            var token = _jWTManager.Authenticate(usersdata);
 
-            return Ok (finalToken);
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(token);
         }
-
     }
 
 }

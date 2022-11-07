@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ComicBookAPI.Models;
 using ComicBookAPI.Data;
+using Microsoft.AspNetCore.Authorization;
+
 namespace ComicBookAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class ComicBookController:ControllerBase

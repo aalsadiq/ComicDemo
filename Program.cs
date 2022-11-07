@@ -1,5 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using ComicBookAPI.Data;
+using ComicBookAPI.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +24,7 @@ builder.Services.AddAuthentication(x =>
 		x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 	}).AddJwtBearer(o =>
 	{
-		var Key = Encoding.UTF8.GetBytes(Configuration["JWT:Key"]);
+		var Key = Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]);
 		o.SaveToken = true;
 		o.TokenValidationParameters = new TokenValidationParameters
 		{
@@ -27,11 +32,12 @@ builder.Services.AddAuthentication(x =>
 			ValidateAudience = false,
 			ValidateLifetime = true,
 			ValidateIssuerSigningKey = true,
-			ValidIssuer = Configuration["JWT:Issuer"],
-			ValidAudience = Configuration["JWT:Audience"],
+			ValidIssuer = builder.Configuration["JWT:Issuer"],
+			ValidAudience = builder.Configuration["JWT:Audience"],
 			IssuerSigningKey = new SymmetricSecurityKey(Key)
 		};
 	});
+builder.Services.AddSingleton<IJWTManagerRepository, JWTManagerRepository>();
 
 //var _jwtsettings = builder.Configuration.GetSection("JwtSetting");
 
@@ -45,6 +51,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// This was added for the Authentication to take place
+app.UseAuthentication();
 
 app.UseAuthorization();
 
