@@ -1,5 +1,4 @@
 FROM registry.access.redhat.com/ubi8/dotnet-31:3.1
-USER 1001
 RUN mkdir ComicBookAPI
 WORKDIR ComicBookAPI
 ADD . .
