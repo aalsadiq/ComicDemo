@@ -1,8 +1,15 @@
-FROM registry.access.redhat.com/ubi8/dotnet-31:3.1
-WORKDIR /server
-COPY ./ /server 
-ENV PORT=8080
-RUN dotnet publish -c Release
-EXPOSE 8080
+# 1
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /source
+COPY . .
+RUN dotnet restore "./Comic.csproj" --disable-parallel
+RUN dotnet publish "./Comic.csproj" -c Release -o /app --no-restore
 
-CMD ["dotnet", "./bin/Release/netcoreapp3.0/publish/ComicBookAPI.dll"]
+# 2
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+COPY --from=build /app ./
+
+EXPOSE 5000
+
+CMD ["dotnet", "Comic.dll"]
